@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="dark"><head><script data-bard-client-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
         window.__firebase_config = firebaseConfig;
         window.__initial_auth_token = initialAuthToken;
@@ -2736,4 +2736,24 @@ git push -u origin main`;
         });
     </script>
 
+<style>
+  /* Hide any GitHub publish buttons or modals */
+  #githubModal, #github-modal, #publishModal, [id*="github" i][id*="modal" i] { display: none !important; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // 1. Remove the "Publish to GitHub" button from the header
+    document.querySelectorAll('button, a').forEach(el => {
+      if (el.textContent && el.textContent.toLowerCase().includes('publish to github')) {
+        el.remove();
+      }
+    });
+    // 2. Remove any GitHub deployment popup/modal
+    document.querySelectorAll('[id*="github" i], [id*="publishModal" i]').forEach(el => {
+      if (el.tagName !== 'BODY' && el.tagName !== 'HTML') {
+        el.remove();
+      }
+    });
+  });
+</script>
 </body></html>
